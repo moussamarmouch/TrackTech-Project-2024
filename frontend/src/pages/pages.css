@@ -1,0 +1,292 @@
+/*Global*/
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+/*App selection*/
+.app-selection {
+    display: flex;
+}
+
+.app-selection .spacer {
+    height: 2px;
+    width: 40px;
+    margin: 20px auto;
+    background: #b72718;
+}
+
+.app-selection .middle {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.app-selection .middle .text {
+    text-align: center;
+}
+
+.app-selection .card {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1) !important;
+    justify-content: center;
+    align-items: center;
+    border: 0px !important;
+    border-radius: .5rem !important;
+    border-top-left-radius: 0.75rem !important;
+    border-top-right-radius: 0.75rem !important;
+    border-bottom-right-radius: 0.75rem !important;
+    border-bottom-left-radius: 0.75rem !important;
+    cursor: pointer;
+    width: 18rem;
+    height: 20rem;
+    margin-bottom: 5rem;
+}
+
+.app-selection .card:hover {
+    -webkit-transform: scale(1.04);
+    -moz-transform: scale(1.04);
+    -ms-transform: scale(1.04);
+    -o-transform: scale(1.04);
+    transform: scale(1.04);
+}
+
+.app-selection .card-header {
+    display: flex;
+    background-color: #f0f3f9;
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1) !important;
+}
+
+.app-selection .img {
+    height: 6rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.app-selection .card-body {
+    display: flex;
+    background-image: linear-gradient(#6586c3c5 0, #6586c3c5 100%), url('../assets/images/app-bg.webp');
+    height: 4rem;
+}
+
+.app-selection .card-body .text {
+    color: white;
+    margin: auto;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.app-selection .card-footer {
+    display: flex;
+}
+
+.app-selection .card-footer .text {
+    margin: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgb(111,113,115);
+}
+
+/*Tool selection*/
+.tool-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.tool-selection .spacer {
+    height: 2px;
+    width: 40px;
+    margin: 20px auto;
+    background: #b72718;
+}
+
+.tool-selection .middle {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.tool-selection .middle .text {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.tool-selection .wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Media Query for smaller screens */
+@media screen and (max-width: 1024px) {
+    .tool-selection .wrapper {
+        margin-bottom: 6rem;
+    }
+}
+
+.tool-selection .card {
+    width: 20rem;
+    height: 20rem;
+}
+
+.tool-selection .card-header {
+    display: flex;
+    background-color: #f0f3f9;
+    height: 5rem;
+    border-left: 2px solid #dadada;
+    border-top: 2px  solid #dadada;
+    border-right: 2px  solid #dadada;
+    border-bottom: 0;
+    border-top-left-radius: calc(0.75rem - 1px);
+    border-top-right-radius: calc(0.75rem - 1px);
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.tool-selection .icon {
+    margin: auto;
+    color: #3e4346;
+}
+
+.tool-selection .card-body{
+    height: 9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    justify-content: center;
+    border: 2px solid #dadada;
+}
+
+.tool-selection .card-body span.text,
+.tool-selection .card-body p.smallText {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.tool-selection .card-body p.smallText {
+    color:#6c757d;
+}
+  
+.tool-selection .card-footer{
+    height: 5rem;
+    background-color: #f0f3f9;
+    display: flex;
+    border-left: 2px  solid #dadada;
+    border-bottom: 2px  solid #dadada;
+    border-right: 2px  solid #dadada;
+    border-top: 0;
+    border-radius: 0 0 calc(.75rem - 1px) calc(.75rem - 1px);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: calc(0.75rem - 1px);
+    border-bottom-left-radius: calc(0.75rem - 1px);
+}
+
+.tool-selection .card-footer .card-button {
+    margin: auto;
+  align-items: center;
+  background-color: initial;
+  background-image: linear-gradient(#464d55, #25292e);
+  border-radius: 50px;
+  border-width: 0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .1),0 3px 6px rgba(0, 0, 0, .05);
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  font-size: 18px;
+  height: 70%;
+  width: 80%;
+  justify-content: center;
+  line-height: 1;
+  outline: none;
+  overflow: hidden;
+  padding: 0 32px;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all 150ms;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.tool-selection .card-footer .card-button:hover {
+  box-shadow: rgba(0, 1, 0, .2) 0 2px 8px;
+  opacity: .85;
+}
+
+.tool-selection .card-footer .card-button:active {
+  outline: 0;
+}
+
+.tool-selection .card-footer .card-button:focus {
+  box-shadow: rgba(0, 0, 0, .5) 0 0 0 3px;
+}
+
+@media (max-width: 420px) {
+  .tool-selection .card-footer .card-button {
+    height: 48px;
+  }
+}
+
+/*Normal map*/
+.normal-map {
+    background-color: #f0f3f9;
+}
+
+.rot-bg-lines-right-bottom::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-bottom: 2px solid #dadada7c;
+    border-left: 2px solid #dadada7c;
+    border-radius: 0 0 0 20px;
+    height: calc(100% - 6rem);
+    width: 7rem;
+    z-index: -10;
+  }
+  
+  .rot-bg-lines-right-bottom::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top: 2px solid #dadada7c;
+    border-right: 2px solid #dadada7c;
+    border-radius: 0 20px 0 0;
+    width: calc(100% - 66px);
+    height: 10rem;
+    z-index: -10;
+  }
+
+  .rot-bg-lines-left-bottom::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom: 2px solid #dadada7c;
+    border-right: 2px solid #dadada7c;
+    border-radius: 0 0  20px 0;
+    height: calc(100% - 8rem);
+    width: 7rem;
+    z-index: -10;
+  }
+  
+  .rot-bg-lines-left-bottom::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-top: 2px solid #dadada7c;
+    border-left: 2px solid #dadada7c;
+    border-radius: 20px 0 0 0;
+    width: calc(100% - 66px);
+    height: 12rem;
+    z-index: -10;
+  }

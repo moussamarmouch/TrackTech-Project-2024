@@ -1,0 +1,6 @@
+
+frontend/package-lock.json
+backend/AnomalyTrackerBackend.API/appsettings.json
+frontend/src/config/config.json
+fastapi/__pycache__/main.cpython-311.pyc
+fastapi/__pycache__

@@ -1,0 +1,80 @@
+.body-container {
+    display: flex;
+  }
+  
+  .left-side {
+    width: 30%;
+  }
+  
+  .right-side {
+    border-left: 2px solid #a4a3a7;
+    margin-right: 1rem;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .right-side .buttons {
+    margin-top: 10px;
+  }
+
+  .severity {
+    display: flex;
+    align-items: center;
+    margin-top: -10px;
+  }
+
+  .severity .severity-circle {
+    width: 30px;
+    height: 30px;
+  }
+
+  .severity-image {
+    width: 100%; /* Make the image fill the circle */
+    height: 100%;
+    object-fit: cover; /* Preserve the aspect ratio and cover the entire container */
+  }
+
+  .right-side img {
+    margin-left: 20px;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin-left: 7rem;
+    margin-right: 7rem;
+    justify-content: space-between;
+  }
+
+.solvedFlagged {
+    cursor: pointer;
+    align-items: center;
+    padding: 6px 14px;
+    width: 8rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: none;
+    background: gray;
+    box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+    color: #DFDEDF;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.solvedFlagged:focus {
+  box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+  outline: 0;
+}
+
+.coordinates {
+  margin-top: 20px;
+}
+
+.latlong {
+  margin-right: 10px;
+}
+

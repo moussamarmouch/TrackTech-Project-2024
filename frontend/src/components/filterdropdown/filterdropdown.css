@@ -1,0 +1,120 @@
+.filter-dropdown {
+  position: absolute;
+  z-index: 9996;
+  min-width: 25rem;
+  display: block;
+}
+  
+.iconfilter {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 1px solid #333;
+}
+
+.iconfilter:hover {
+  background-color: #4F6B9B;
+  color: white;
+}
+  
+.dropdown-content {
+  position: absolute;
+  background-color: #fff; /* Set your desired background color */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  z-index: 1;
+  min-width: 200px; /* Set your desired minimum width */
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc; /* Set your desired border color */
+  max-height: 80vh; /* Set your preferred maximum height */
+  overflow-y: auto;
+}
+
+.dropdown-content hr {
+  margin: 10px 0;
+  border: none;
+  border-top: 1px solid #ccc; /* Match the border color */
+}
+  
+.dropdown-content h3 {
+  font-size: 16px;
+  margin-top: 10px;
+}
+  
+/* Display the dropdown content when the parent dropdown is hovered */
+.filter-dropdown:hover .dropdown-content {
+  display: block;
+}
+  
+/* Style the buttons inside the dropdown content */
+.dropdown-content button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  text-align: left;
+  border: none;
+}
+
+.filterheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+  
+.filterheader h4 {
+  margin: 0;
+  max-width: 80%;
+}
+
+.resetbutton {
+  background-color: transparent;
+  color: #3e4346;
+  border: none;
+  padding: 8px;
+  border-radius: 3px;
+  cursor: pointer;
+  max-width: 14%;
+  justify-content: center;
+}
+  
+.resetbutton:hover {
+  background-color: #d32f2f;
+  color: white;
+}
+
+label {
+  font-family: 'PoppinsRegular', BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-size: 14px;
+}
+
+.sbsfilter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dateselector {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5px;
+}
+
+.second-dropdown-content button.selected {
+  /* Your selected button styles here */
+  background-color: #4F6B9B;
+  color: #fff;
+  
+}
+
+.firstoption {
+  /*border: 1px solid black !important;*/
+  background-color: #4F6B9B;
+  color: #fff;
+}
+
+.statfilteralign {
+  padding-left: 1rem !important;
+}

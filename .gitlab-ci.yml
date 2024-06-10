@@ -1,0 +1,137 @@
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+      when: always
+    - when: never
+
+variables:
+  TF_DIR: ${CI_PROJECT_DIR}/terraform
+  STATE_NAME: "TrackTech"
+  ADDRESS: "https://gitlab.com/api/v4/projects/${CI_PROJECT_ID}/terraform/state/${STATE_NAME}"
+
+
+stages:
+  - build_frontend
+  # - build_backend
+  # - build_api
+  # - validate
+  # - plan
+  # - apply
+  # - destroy
+
+image:
+  name: hashicorp/terraform:latest
+  entrypoint: [""]
+
+# Set variables before scripts are executed
+before_script:
+  - apk add --update git curl docker
+  - export GITLAB_ACCESS_TOKEN=$gitlab_token
+  - export TF_VAR_AWS_ACCESS_KEY=${aws_access_key}
+  - export TF_VAR_AWS_SECRET_KEY=${aws_secret_key}
+  - export TF_VAR_AWS_TOKEN=${aws_token}
+  - export TF_VAR_AWS_DB_USERNAME=$aws_db_username
+  - export TF_VAR_AWS_DB_PASSWORD=$aws_db_password
+  - export TF_VAR_AWS_DB_DATABASE=$aws_db_database
+  - export DOCKER_SOCK=tcp://docker:2375
+  - export TF_VAR_GITLAB_USERNAME=$gitlabusername
+  - export TF_VAR_GITLAB_DEPLOY_TOKEN_USERNAME=$gitlab_deploy_token_username
+  - export TF_VAR_GITLAB_DEPLOY_TOKEN_TOKEN=$gitlab_deploy_token_token
+  - export TF_VAR_GITLAB_ACCESS_TOKEN=$gitlab_access_token
+  - export TF_VAR_API_KEY_FASTAPI=$api_key_fastapi
+  - export TF_VAR_S3_BUCKET=$s3_bucket
+  - cd ${TF_DIR}
+  - chmod +x ../terraform_command.sh
+  - chmod +x ../terraform_init.sh
+
+build_frontend:
+  stage: build_frontend
+  image: docker:18-dind
+  services:
+    - docker:18-dind
+  script:
+    - cd ../frontend
+    - docker build -t $CI_REGISTRY_IMAGE -t $CI_REGISTRY_IMAGE:web1 .
+    - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER $CI_REGISTRY --password-stdin
+    - docker push $CI_REGISTRY_IMAGE
+
+# build_backend:
+#   stage: build_backend
+#   image: docker:18-dind
+#   services:
+#     - docker:18-dind
+#   script:
+#     - cd ../backend
+#     - docker build -t $CI_REGISTRY_IMAGE -t $CI_REGISTRY_IMAGE:backhttps1 .
+#     - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER $CI_REGISTRY --password-stdin
+#     - docker push $CI_REGISTRY_IMAGE
+
+# build_api:
+#   stage: build_api
+#   image: docker:20-dind
+#   services:
+#     - docker:20-dind
+#   script:
+#     - cd ../fastapi
+#     - docker build -t $CI_REGISTRY_IMAGE -t $CI_REGISTRY_IMAGE:fast .
+#     - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER $CI_REGISTRY --password-stdin
+#     - docker push $CI_REGISTRY_IMAGE:fast
+
+# # Validate terraform code
+# validate:
+#   stage: validate
+#   script:
+#     - sh ../terraform_init.sh
+#     - sh ../terraform_command.sh validate
+#   cache:
+#     key: ${CI_COMMIT_REF_NAME}
+#     paths:
+#     - ${TF_DIR}/.terraform
+#     policy: pull-push
+
+# # Plan terraform changes
+# plan:
+#   stage: plan
+#   script:
+#     - sh ../terraform_init.sh
+#     - sh ../terraform_command.sh plan
+#   dependencies:
+#     - validate
+#   cache:
+#     key: ${CI_COMMIT_REF_NAME}
+#     paths:
+#       - ${TF_DIR}/.terraform
+#     policy: pull
+
+# # Apply terraform changes
+# apply:
+#   stage: apply
+#   services:
+#     - docker:20.10.12-dind
+#   script:
+#     - sh ../terraform_init.sh
+#     - sh ../terraform_command.sh apply 
+#   dependencies:
+#     - plan
+#   cache:
+#     key: ${CI_COMMIT_REF_NAME}
+#     paths:
+#     - ${TF_DIR}/.terraform
+#     policy: pull
+
+# # Destroy resources via terraform if manual action 
+# destroy:
+#   stage: destroy
+#   services:
+#     - docker:20.10.12-dind
+#   script:
+#     - sh ../terraform_init.sh
+#     - sh ../terraform_command.sh destroy
+#   dependencies:
+#     - plan
+#   cache:
+#     key: ${CI_COMMIT_REF_NAME}
+#     paths:
+#     - ${TF_DIR}/.terraform
+#     policy: pull
+#   when: manual

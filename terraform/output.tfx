@@ -1,0 +1,17 @@
+# output van de website
+#output websiteurl {
+# value = aws_lb.tracktech-aws-lb.dns_name
+#}
+
+# output van de s3 bucket
+#output "object_s3_url" {
+#  value = aws_s3_access_point.tracktech-s3-access.domain_name
+#}
+
+#output "db_subnet_group_name" {
+#  value = aws_db_subnet_group.tracktech-vpc.name
+#}
+
+#output "db_subnet_group_name" {
+#  value = module.tracktech-vpc.db_subnet_group_name
+#}

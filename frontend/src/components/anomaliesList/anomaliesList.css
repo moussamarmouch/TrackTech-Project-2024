@@ -1,0 +1,42 @@
+.anomalieslist {
+    width: 100%;
+    max-height: 88%;
+    overflow-y: auto;
+    display: flex;
+}
+
+.center {
+    margin:auto;
+}
+
+.anomalyList {
+    cursor: pointer;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-right: 2rem;
+    width: 100%;
+}
+
+.severity .severity-circle {
+    width: 30px;
+    height: 30px;
+  }
+
+  .severity-image {
+    width: 100%; /* Make the image fill the circle */
+    height: 100%;
+    object-fit: cover; /* Preserve the aspect ratio and cover the entire container */
+  }
+
+.severity-dropdown {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+.sort-button {
+    font-size: small;
+}
